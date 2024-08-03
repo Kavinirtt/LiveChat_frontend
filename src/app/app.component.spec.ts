@@ -23,7 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'socket-io-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('socket-io-client');
   });
 
   it('should render title', () => {

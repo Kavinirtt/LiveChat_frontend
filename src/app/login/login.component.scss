@@ -1,0 +1,73 @@
+$outer-background-color: #3498db;
+$transition-time: 0.3s;
+
+body {
+    margin: 0;
+    background-color: $outer-background-color;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #3498db;
+
+    .login-card {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        text-align: center;
+        width: 300px;
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            color: $outer-background-color;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border: 1px solid $outer-background-color;
+            border-radius: 5px;
+            transition: border-color $transition-time;
+
+            &:focus {
+                border-color: darken($outer-background-color, 10%);
+                outline: none;
+            }
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: $outer-background-color;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color $transition-time;
+
+            &:hover {
+                background-color: darken($outer-background-color, 10%);
+            }
+        }
+    }
+}

@@ -1,0 +1,221 @@
+$primary-color: #007bff; 
+$background-color: #f8f0f0;
+$message-sent-color: #d1e7dd;
+$message-received-color: #f8d7da; 
+$input-background-color: #ffffff;
+$border-radius: 25px; 
+$border-color: black; 
+
+.chat-container {
+    width: 100%; 
+    max-width: 420px; 
+    height: 667px; 
+    margin: 80px auto; 
+    border: 10px solid $border-color; 
+    border-radius: $border-radius; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    background-color: #f5f8fa; 
+    box-sizing: border-box; 
+}
+
+.chat-image {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
+}
+
+.image-upload-button {
+    margin-left: 10px; 
+    background-color: cornflowerblue;
+    padding: 10px; 
+    border: none;
+    border-radius: 0 5px 5px 0; 
+    color: white; 
+    cursor: pointer;
+    height: 40px; 
+    transition: background-color 0.3s ease; 
+
+    &:hover {
+        background-color: darken(cornflowerblue, 10%); 
+    }
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    background-color: $primary-color; 
+    color: white; 
+    padding: 15px; 
+    text-align: center; 
+    border-radius: 10px 10px 0 0;
+    margin: 0; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.message-list {
+    flex: 1; 
+    width: 400px; 
+    overflow-y: scroll; 
+    padding: 10px; 
+    background-image: url('../../assets/whatsapp-chat-doodle-patterns-jyd5uvep2fdwjl97.jpg'); 
+    background-size: 100% auto;
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 10px 10px 0 0;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-family: 'Arial', sans-serif;
+    opacity: 0;
+    animation: slideIn 0.5s forwards;
+
+    &.sent {
+        background-color: $message-sent-color;
+        align-self: flex-end;
+        text-align: right;
+    }
+
+    &.received {
+        background-color: $message-received-color;
+        align-self: flex-start;
+        text-align: left;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list ul li.sent {
+    align-self: flex-end;
+}
+
+.message-list ul li.received {
+    align-self: flex-start;
+}
+
+.input-area {
+    display: flex; 
+    width: 400px;
+    align-items: center; 
+    padding: 10px;
+    border-top: 1px solid #e0e0e0; 
+    background-color: $input-background-color;
+    border-radius: 0 0 25px 25px;
+
+    .textarea-container {
+        display: flex; 
+        flex-grow: 1; 
+        position: relative; 
+
+        .message-input {
+            flex-grow: 1; 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px 0 0 5px; 
+            box-sizing: border-box; 
+            height: 40px; 
+            transition: background-color 0.3s ease; 
+
+            &:hover {
+                background-color: lighten(#f0f0f0, 10%); 
+            }
+        }
+
+        .sbutton {
+            margin-left: 10px; 
+            background-color: cornflowerblue;
+            padding: 10px; 
+            border: none; 
+            border-radius: 0 5px 5px 0; 
+            color: white; 
+            cursor: pointer; 
+            height: 40px; 
+            transition: background-color 0.3s ease; 
+
+            &:hover {
+                background-color: darken(cornflowerblue, 10%); 
+            }
+        }
+    }
+}
+
+.send-button {
+    background-color: $primary-color; 
+    border: none; 
+    border-radius: $border-radius; 
+    color: white; 
+    padding: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+
+    &:hover {
+        background-color: darken($primary-color, 10%); 
+    }
+
+    &:active {
+        transform: scale(0.95); 
+    }
+}
+
+@media (max-width: 375px) {
+    .message-input {
+        flex-basis: 65%; 
+    }
+
+    .send-button {
+        padding: 8px; 
+    }
+}
